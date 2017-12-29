@@ -16,7 +16,7 @@ class RandomNumberGenerator {
 
   static numTo6(n) {
     if (n > 6) {
-      return (n%6);
+      return (n % 6 + 1);
     } else {
       return n;
     }
@@ -27,20 +27,15 @@ class RefreshNumbers extends Component {
   constructor(props) {
     super(props);
     this.forceRefresh = this.forceRefresh.bind(this);
-
-    // this.forceRefresh = () => {this.forceRefresh};
   }
 
   forceRefresh(e) {
-    console.log('forceRefresh');
-    // e.preventDefault();
     this.props.onNewNumberRequest(e);
-    // location.reload();
   }
 
   render() {
     return (
-    <button onClick={this.forceRefresh}>Generate!</button>
+      <button onClick={this.forceRefresh}>Generate!</button>
     );
   }
 }
@@ -51,7 +46,7 @@ class DisplayNumbersAsList extends Component {
   }
 
   renderAsSquares() {
-    let numbers = RandomNumberGenerator.generate(6);
+    let numbers = this.props.numbers;
     let listItems = Array.from(numbers).map((n) =>
       <li>{RandomNumberGenerator.numTo6(n)}</li>);
 
@@ -67,12 +62,13 @@ class DisplayNumbersAsList extends Component {
   }
 
   render() {
-    return this.renderAsDiscs();
+    //return this.renderAsDiscs();
+    return this.renderAsSquares();
   }
 
   renderAsDiscs() {
 
-    let numbers = this.props.numbers; //RandomNumberGenerator.generate();
+    let numbers = this.props.numbers;
 
     if ( !numbers || !Array.isArray(numbers) || numbers.length < 1) {
       return (
@@ -93,11 +89,11 @@ class RandomWord extends Component {
     this.state = {
       numbers: []
     };
+    this.generateNewWord = this.generateNewWord.bind(this);
   }
 
   generateNewWord() {
-    this.setState((state) => ({numbers: RandomNumberGenerator.generate(6)}));
-  //  this.setState({numbers: RandomNumberGenerator.generate(6)})    
+    this.setState({numbers: RandomNumberGenerator.generate(6)})    
   }
 
   render() {
@@ -122,14 +118,6 @@ class ApplicationName extends Component {
 }
 
 class App extends Component {
-  constructor() {
-    super();
-    // this.state = {
-    //   name: 'React',
-    //   numbers: []
-    // };
-  }
-
   render() {
     return (
       <div>
@@ -137,13 +125,6 @@ class App extends Component {
         <RandomWord />
       </div>
     );
-    // return (
-    //   <div>
-    //     <Hello name={this.state.name} />
-    //     <DisplayNumbersAsList />
-    //     <RefreshNumbers />
-    //   </div>
-    // );
   }
 }
 
