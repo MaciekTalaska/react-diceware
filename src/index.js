@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
+var dicewareList = require('./diceware-en.txt');
 
 class RandomNumberGenerator {
   static generate(size = 6) {
@@ -14,12 +15,44 @@ class RandomNumberGenerator {
     return Array.from(numbers);
   }
 
+  static arrayToNumber(array) {
+    
+  }
+
   static numTo6(n) {
     if (n > 6) {
       return (n % 6 + 1);
     } else {
       return n;
     }
+  }
+
+  static numToX(n, size) {
+    if (n > size) {
+      return (n % size +1);
+    } else {
+      return n;
+    }
+  }
+}
+
+class WordsRepository {
+  // list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt
+  
+  static loadWordsList(uri) {
+		fetch(dicewareList)
+		.then((res) => res.text())
+		.then((data) => {
+			let list = Array.from(data.split(/\n/));
+			console.log('list: ', list);
+		});			
+	}
+
+  static buildRepository() {
+  }
+
+  static getWord(key) {
+  // list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt  
   }
 }
 
@@ -83,6 +116,19 @@ class DisplayNumbersAsList extends Component {
   }
 }
 
+class DisplayNumbersAsWord extends Component {
+  
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <h2>Not implemented yet!</h2>
+    );
+  }
+}
+
 class RandomWord extends Component {
   constructor(props) {
     super(props);
@@ -112,12 +158,17 @@ class RandomWord extends Component {
 class ApplicationName extends Component {
   render() {
     return (
-      <h1>DiceWare Password Generator</h1>
+      <h1>Diceware Password Generator</h1>
     );
   }
 }
 
 class App extends Component {
+
+	componentWillMount() {
+		WordsRepository.loadWordsList();		
+	}
+
   render() {
     return (
       <div>
