@@ -34,25 +34,45 @@ class RandomNumberGenerator {
       return n;
     }
   }
+
+	static numToStringKey(number) {
+		//console.log('number: ', number);
+		let array = number.map((n) => RandomNumberGenerator.numTo6(n));
+
+		//console.log('array: ', array);
+		array.pop();
+		array.pop();
+		//console.log('array5: ', array);
+		
+		let key = array.join('');
+		//console.log('gk: ', key);
+		return key.toString();	
+	}
 }
 
 class WordsRepository {
   // list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt
   
-  static loadWordsList(uri) {
-		fetch(dicewareList)
-		.then((res) => res.text())
-		.then((data) => {
-			let list = Array.from(data.split(/\n/));
-			console.log('list: ', list);
-		});			
+  static loadWordsList() {
+		return new Promise( (resolve, reject) => {
+			fetch(dicewareList)
+			.then((res) => res.text())
+			.then((data) => {
+				let list = Array.from(data.split(/\n/));
+				let map = new Map();
+
+				list.forEach((line) => {
+					let [k,v] = line.split(/\t/);
+					map.set(k,v);
+				});
+				resolve(map);	
+			});
+		});
 	}
 
-  static buildRepository() {
-  }
-
-  static getWord(key) {
-  // list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt  
+  static getWord(state) {
+		let k = RandomNumberGenerator.numToStringKey(state.numbers);
+		return state.list.get(k);
   }
 }
 
@@ -120,11 +140,17 @@ class DisplayNumbersAsWord extends Component {
   
   constructor(props) {
     super(props);
+		this.setState({word: this.props.word});
+		console.log('ths.props.word: ', this.props.word);
   }
 
   render() {
+		//console.log('[render] this.state.word: ', this.state.word);
+		console.log('[render] this.props.word: ', this.props.word);
     return (
-      <h2>Not implemented yet!</h2>
+      <h2>Current word is: {this.props.word}</h2>
+			//<h2>this.state: </h2>
+			//<h2>Current word is: {WordsRepository.getWord(this.state)}</h2>
     );
   }
 }
@@ -133,14 +159,40 @@ class RandomWord extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numbers: []
+      numbers: [],
+			list : null,
+			word: null
     };
     this.generateNewWord = this.generateNewWord.bind(this);
   }
+	
+	componentWillMount() {
+		console.log('component is about to be mounted!!!');
+		WordsRepository.loadWordsList().then( (result) => {
+			this.setState({list: result});
+			console.log('this.state: ', this.state);
+		});		
+	}
 
   generateNewWord() {
     this.setState({numbers: RandomNumberGenerator.generate(6)})    
+		if (this.state.list != null) {
+			console.log('list length: ', this.state.list.length);
+			let k = RandomNumberGenerator.numToStringKey(this.state.numbers);
+			console.log('key: ', k);
+			let newWord = this.state.list.get(k);
+			console.log('word from key ', newWord);
+			this.setState({word: newWord });
+		}
   }
+
+	getWordFromState() {
+		if (this.state.numbers.length <1) {
+			this.genereteNewWord();
+		}
+		let k = RandomNumberGenerator.numToStringKey(this.state.numbers);
+		return this.state.list.get(k);
+	}
 
   render() {
     if (this.state.numbers.length < 1) {
@@ -148,6 +200,7 @@ class RandomWord extends Component {
     }
     return (
       <div>
+				<DisplayNumbersAsWord numbers={this.state.numbers} word={this.state.word}/>
         <DisplayNumbersAsList numbers={this.state.numbers}/>
         <RefreshNumbers onNewNumberRequest={this.generateNewWord}/>
       </div>
@@ -164,10 +217,12 @@ class ApplicationName extends Component {
 }
 
 class App extends Component {
-
-	componentWillMount() {
-		WordsRepository.loadWordsList();		
-	}
+//	constructor(props) {
+//		super(props);
+//		this.state = {
+//			list : null
+//		};
+//	}
 
   render() {
     return (
