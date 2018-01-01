@@ -44,7 +44,7 @@ class RandomNumberGenerator {
 		array.pop();
 		
 		let key = array.join('');
-		return key.toString();	
+		return key;//.toString();	
 	}
 }
 
@@ -95,7 +95,7 @@ class DisplayNumbersAsList extends Component {
   renderAsSquares() {
     let numbers = this.props.numbers;
     let listItems = Array.from(numbers).map((n) =>
-      <li>{RandomNumberGenerator.numTo6(n)}</li>);
+      <li key={n}>{RandomNumberGenerator.numTo6(n)}</li>);
 
     /*var displayStyle = {
       listStyleType: 'square'
@@ -117,14 +117,14 @@ class DisplayNumbersAsList extends Component {
 
     let numbers = this.props.numbers;
 
-    if ( !numbers || !Array.isArray(numbers) || numbers.length < 1) {
-      return (
-        <div style={{color: "red"}}>Error! No data to display!</div>
-      );
-    }
+//    if ( !numbers || !Array.isArray(numbers) || numbers.length < 1) {
+//      return (
+//        <div style={{color: "red"}}>Error! No data to display!</div>
+//      );
+//    }
     return (
       <ul> {Array.from(numbers).map((n) =>
-        <li>{RandomNumberGenerator.numTo6(n)}</li>)}
+        <li key={n}>{RandomNumberGenerator.numTo6(n)}</li>)}
       </ul>
     );
   }
@@ -134,7 +134,7 @@ class DisplayNumbersAsWord extends Component {
   
   constructor(props) {
     super(props);
-		this.setState({word: this.props.word});
+		//this.setState({word: this.props.word});
 		console.log('ths.props.word: ', this.props.word);
   }
 
@@ -158,7 +158,6 @@ class RandomWord extends Component {
   }
 	
 	componentWillMount() {
-		console.log('component is about to be mounted!!!');
 		WordsRepository.loadWordsList().then( (result) => {
 			this.setState({list: result});
 			console.log('this.state: ', this.state);
@@ -186,12 +185,12 @@ class RandomWord extends Component {
 	}
 
   render() {
-    if (this.state.numbers.length < 1) {
-      this.generateNewWord();
-    }
+//    if (this.state.numbers.length < 1) {
+//      this.generateNewWord();
+//    }
     return (
       <div>
-				<DisplayNumbersAsWord numbers={this.state.numbers} word={this.state.word}/>
+				<DisplayNumbersAsWord word={this.state.word}/>
         <DisplayNumbersAsList numbers={this.state.numbers}/>
         <RefreshNumbers onNewNumberRequest={this.generateNewWord}/>
       </div>
