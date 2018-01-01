@@ -36,16 +36,12 @@ class RandomNumberGenerator {
   }
 
 	static numToStringKey(number) {
-		//console.log('number: ', number);
 		let array = number.map((n) => RandomNumberGenerator.numTo6(n));
 
-		//console.log('array: ', array);
 		array.pop();
 		array.pop();
-		//console.log('array5: ', array);
 		
 		let key = array.join('');
-		//console.log('gk: ', key);
 		return key.toString();	
 	}
 }
@@ -145,12 +141,9 @@ class DisplayNumbersAsWord extends Component {
   }
 
   render() {
-		//console.log('[render] this.state.word: ', this.state.word);
 		console.log('[render] this.props.word: ', this.props.word);
     return (
       <h2>Current word is: {this.props.word}</h2>
-			//<h2>this.state: </h2>
-			//<h2>Current word is: {WordsRepository.getWord(this.state)}</h2>
     );
   }
 }
@@ -217,12 +210,6 @@ class ApplicationName extends Component {
 }
 
 class App extends Component {
-//	constructor(props) {
-//		super(props);
-//		this.state = {
-//			list : null
-//		};
-//	}
 
   render() {
     return (
