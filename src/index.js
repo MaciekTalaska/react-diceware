@@ -29,14 +29,6 @@ class RandomNumberGenerator {
     }
   }
 
-  static numToX(n, size) {
-    if (n > size) {
-      return (n % size +1);
-    } else {
-      return n;
-    }
-  }
-
 	static numToStringKey(number) {
 		let array = number.map((n) => RandomNumberGenerator.numTo6(n));
 
