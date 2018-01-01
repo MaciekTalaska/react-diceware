@@ -44,7 +44,7 @@ class RandomNumberGenerator {
 		array.pop();
 		
 		let key = array.join('');
-		return key;//.toString();	
+		return key;
 	}
 }
 
@@ -117,11 +117,6 @@ class DisplayNumbersAsList extends Component {
 
     let numbers = this.props.numbers;
 
-//    if ( !numbers || !Array.isArray(numbers) || numbers.length < 1) {
-//      return (
-//        <div style={{color: "red"}}>Error! No data to display!</div>
-//      );
-//    }
     return (
       <ul> {Array.from(numbers).map((n) =>
         <li key={n}>{RandomNumberGenerator.numTo6(n)}</li>)}
@@ -134,7 +129,6 @@ class DisplayNumbersAsWord extends Component {
   
   constructor(props) {
     super(props);
-		//this.setState({word: this.props.word});
 		console.log('ths.props.word: ', this.props.word);
   }
 
@@ -185,9 +179,6 @@ class RandomWord extends Component {
 	}
 
   render() {
-//    if (this.state.numbers.length < 1) {
-//      this.generateNewWord();
-//    }
     return (
       <div>
 				<DisplayNumbersAsWord word={this.state.word}/>
