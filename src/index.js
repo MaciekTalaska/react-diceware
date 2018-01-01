@@ -66,11 +66,6 @@ class WordsRepository {
 			});
 		});
 	}
-
-  static getWord(state) {
-		let k = RandomNumberGenerator.numToStringKey(state.numbers);
-		return state.list.get(k);
-  }
 }
 
 class RefreshNumbers extends Component {
