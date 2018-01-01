@@ -6,7 +6,7 @@ import './style.css';
 // for the sake of speed, list of words is included as part of the project
 var dicewareListUrl = require('./diceware-en.txt');
 
-class RandomNumberGenerator {
+class Dice {
   static generate(size = 6) {
     if (size < 1) {
       throw new Error("[RandomNuberGenerator]: requested size of random array must be greater than 1");
@@ -29,8 +29,8 @@ class RandomNumberGenerator {
     }
   }
 
-	static numToStringKey(number) {
-		let array = number.map((n) => RandomNumberGenerator.numTo6(n));
+	static numbersArrayToNumber(number) {
+		let array = number.map((n) => Dice.numTo6(n));
 
 		array.pop();
 		array.pop();
@@ -82,7 +82,7 @@ class DisplayNumbersAsList extends Component {
   renderAsSquares() {
     let numbers = this.props.numbers;
     let listItems = Array.from(numbers).map((n) =>
-      <li key={n}>{RandomNumberGenerator.numTo6(n)}</li>);
+      <li key={n}>{Dice.numTo6(n)}</li>);
 
     /*var displayStyle = {
       listStyleType: 'square'
@@ -106,7 +106,7 @@ class DisplayNumbersAsList extends Component {
 
     return (
       <ul> {Array.from(numbers).map((n) =>
-        <li key={n}>{RandomNumberGenerator.numTo6(n)}</li>)}
+        <li key={n}>{Dice.numTo6(n)}</li>)}
       </ul>
     );
   }
@@ -146,10 +146,10 @@ class RandomWord extends Component {
 	}
 
   generateNewWord() {
-    this.setState({numbers: RandomNumberGenerator.generate(6)})    
+    this.setState({numbers: Dice.generate(6)})    
 		if (this.state.list != null) {
 			console.log('list length: ', this.state.list.length);
-			let k = RandomNumberGenerator.numToStringKey(this.state.numbers);
+			let k = Dice.numbersArrayToNumber(this.state.numbers);
 			console.log('key: ', k);
 			let newWord = this.state.list.get(k);
 			console.log('word from key ', newWord);
@@ -161,7 +161,7 @@ class RandomWord extends Component {
 		if (this.state.numbers.length <1) {
 			this.genereteNewWord();
 		}
-		let k = RandomNumberGenerator.numToStringKey(this.state.numbers);
+		let k = Dice.numbersArrayToNumber(this.state.numbers);
 		return this.state.list.get(k);
 	}
 
