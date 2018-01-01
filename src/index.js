@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
-var dicewareList = require('./diceware-en.txt');
+var dicewareListUrl = require('./diceware-en.txt');
 
 class RandomNumberGenerator {
   static generate(size = 6) {
@@ -55,7 +55,7 @@ class WordsRepository {
   
   static loadWordsList() {
 		return new Promise( (resolve, reject) => {
-			fetch(dicewareList)
+			fetch(dicewareListUrl)
 			.then((res) => res.text())
 			.then((data) => {
 				let list = Array.from(data.split(/\n/));
