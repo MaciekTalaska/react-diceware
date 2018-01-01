@@ -90,18 +90,15 @@ class RefreshNumbers extends Component {
 }
 
 class DisplayNumbersAsList extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   renderAsSquares() {
     let numbers = this.props.numbers;
     let listItems = Array.from(numbers).map((n) =>
       <li>{RandomNumberGenerator.numTo6(n)}</li>);
 
-    var displayStyle = {
+    /*var displayStyle = {
       listStyleType: 'square'
-    };
+    };*/
 
     return (
       <ul style={{listStyleType:'square'}}>
