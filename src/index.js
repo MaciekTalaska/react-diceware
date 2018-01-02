@@ -81,42 +81,6 @@ class RefreshNumbers extends Component {
   }
 }
 
-class DisplayNumbersAsList extends Component {
-
-  renderAsSquares() {
-    let numbers = this.props.numbers;
-    let listItems = Array.from(numbers).map((n) =>
-      <li key={n}>{Dice.truncateTo(n)}</li>);
-
-    /*var displayStyle = {
-      listStyleType: 'square'
-    };*/
-
-    return (
-      <ul style={{listStyleType:'square'}}>
-        {listItems}
-      </ul>
-    )
-  }
-
-  render() {
-    //return this.renderAsDiscs();
-    //return this.renderAsSquares();
-		return (<div></div>);
-  }
-
-  renderAsDiscs() {
-
-    let numbers = this.props.numbers;
-
-    return (
-      <ul> {Array.from(numbers).map((n) =>
-        <li key={n}>{Dice.truncateTo(n)}</li>)}
-      </ul>
-    );
-  }
-}
-
 class DisplayNumbersAsWord extends Component {
   
   constructor(props) {
@@ -169,7 +133,6 @@ class RandomWord extends Component {
     return (
       <div>
 				<DisplayNumbersAsWord word={this.state.word}/>
-        <DisplayNumbersAsList numbers={this.state.numbers}/>
         <RefreshNumbers onNewNumberRequest={this.generateNewWord}/>
       </div>
     );
