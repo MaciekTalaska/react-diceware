@@ -9,19 +9,13 @@ var dicewareListUrl = require('./diceware-en.txt');
 class Dice {
   static throwMany(dices = 6) {
     if (dices < 1) {
-      throw new Error("[Dice]: requested dices of random array must be greater than 1");
+      throw new Error('[Dice.throwMany]: at least one dice has to be thrown!');
     }
     let numbers = new Uint32Array(dices);
     window.crypto.getRandomValues(numbers);
 
-    //return Array.from(numbers);
-		console.log('numbers: ', numbers);
 		let array = Array.from(numbers);
-		console.log('array: ', array);
-		array.forEach((n) => Dice.truncateTo(n));
-		console.log('array truncated: ', array);
 		let k = Dice.dicesToKey(array);
-		console.log('k: ', k);
 		return k; 
   }
 
@@ -35,10 +29,7 @@ class Dice {
 
 	static dicesToKey(numbers) {
 		let array = numbers.map((n) => Dice.truncateTo(n));
-
-		//let array = numbers;
 		array.length = 4;
-		
 		let key = array.join('');
 		return key;
 	}
@@ -116,17 +107,20 @@ class Diceware extends Component {
 	}
 
   generateNewWord() {
-    this.setState({numbers: Dice.throwMany()})    
-		if (this.state.list != null) {
-			console.log('list length: ', this.state.list.size);
+    //this.setState({numbers: Dice.throwMany()});
+		let key = Dice.throwMany();
+		this.setState({numbers: key});
+		console.log('[gNW] numbers: ', this.state.numbers);    
+		//if (this.state.list != null) {
+			console.log('[gNW] list length: ', this.state.list.size);
 			//let k = Dice.dicesToKey(this.state.numbers);
 			//console.log('key: ', k);
-			let k = this.state.numbers;
-			console.log('key: ', k);
+			let k = key;//this.state.numbers;
+			console.log('[gNW] key: ', k);
 			let newWord = this.state.list.get(k);
-			console.log('word from key ', newWord);
+			console.log('[gNW] word from key ', newWord);
 			this.setState({word: newWord });
-		}
+		//}
   }
 
   render() {
