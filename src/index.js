@@ -64,7 +64,7 @@ class WordsRepository {
 	}
 }
 
-class RefreshNumbers extends Component {
+class DiceButton extends Component {
   constructor(props) {
     super(props);
     this.forceRefresh = this.forceRefresh.bind(this);
@@ -81,7 +81,7 @@ class RefreshNumbers extends Component {
   }
 }
 
-class DisplayNumbersAsWord extends Component {
+class DiceWord extends Component {
   
   constructor(props) {
     super(props);
@@ -96,7 +96,7 @@ class DisplayNumbersAsWord extends Component {
   }
 }
 
-class RandomWord extends Component {
+class Diceware extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -132,8 +132,8 @@ class RandomWord extends Component {
   render() {
     return (
       <div>
-				<DisplayNumbersAsWord word={this.state.word}/>
-        <RefreshNumbers onNewNumberRequest={this.generateNewWord}/>
+				<DiceWord word={this.state.word}/>
+        <DiceButton onNewNumberRequest={this.generateNewWord}/>
       </div>
     );
   }
@@ -153,7 +153,7 @@ class App extends Component {
     return (
       <div>
         <ApplicationName />
-        <RandomWord />
+        <Diceware />
       </div>
     );
   }
