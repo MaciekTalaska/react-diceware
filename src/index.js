@@ -80,7 +80,7 @@ class DiceWord extends Component {
   }
 
   render() {
-		console.log('[render] this.props.word: ', this.props.word);
+		console.log('[DiceWord.render] this.props.word: ', this.props.word);
     return (
 			(<h2>Current word is: {this.props.word}</h2>)
     );
@@ -101,26 +101,15 @@ class Diceware extends Component {
 	componentWillMount() {
 		WordsRepository.loadWordsList().then( (result) => {
 			this.setState({list: result});
-			console.log('this.state: ', this.state);
 			this.generateNewWord();
 		});		
 	}
 
   generateNewWord() {
-    //this.setState({numbers: Dice.throwMany()});
 		let key = Dice.throwMany();
 		this.setState({numbers: key});
-		console.log('[gNW] numbers: ', this.state.numbers);    
-		//if (this.state.list != null) {
-			console.log('[gNW] list length: ', this.state.list.size);
-			//let k = Dice.dicesToKey(this.state.numbers);
-			//console.log('key: ', k);
-			let k = key;//this.state.numbers;
-			console.log('[gNW] key: ', k);
-			let newWord = this.state.list.get(k);
-			console.log('[gNW] word from key ', newWord);
+			let newWord = this.state.list.get(key);
 			this.setState({word: newWord });
-		//}
   }
 
   render() {
