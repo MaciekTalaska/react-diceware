@@ -153,14 +153,6 @@ class RandomWord extends Component {
 		}
   }
 
-	getWordFromState() {
-		if (this.state.numbers.length <1) {
-			this.genereteNewWord();
-		}
-		let k = Dice.numbersArrayToNumber(this.state.numbers);
-		return this.state.list.get(k);
-	}
-
   render() {
     return (
       <div>
