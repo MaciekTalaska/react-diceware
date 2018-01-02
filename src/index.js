@@ -117,7 +117,7 @@ class DisplayNumbersAsWord extends Component {
   render() {
 		console.log('[render] this.props.word: ', this.props.word);
     return (
-      <h2>Current word is: {this.props.word}</h2>
+			(<h2>Current word is: {this.props.word}</h2>)
     );
   }
 }
@@ -137,6 +137,7 @@ class RandomWord extends Component {
 		WordsRepository.loadWordsList().then( (result) => {
 			this.setState({list: result});
 			console.log('this.state: ', this.state);
+			this.generateNewWord();
 		});		
 	}
 
