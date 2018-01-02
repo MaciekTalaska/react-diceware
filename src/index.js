@@ -14,7 +14,15 @@ class Dice {
     let numbers = new Uint32Array(dices);
     window.crypto.getRandomValues(numbers);
 
-    return Array.from(numbers);
+    //return Array.from(numbers);
+		console.log('numbers: ', numbers);
+		let array = Array.from(numbers);
+		console.log('array: ', array);
+		array.forEach((n) => Dice.truncateTo(n));
+		console.log('array truncated: ', array);
+		let k = Dice.dicesToKey(array);
+		console.log('k: ', k);
+		return k; 
   }
 
   static truncateTo(n) {
@@ -25,9 +33,10 @@ class Dice {
     }
   }
 
-	static numbersArrayToNumber(number) {
-		let array = number.map((n) => Dice.truncateTo(n));
+	static dicesToKey(numbers) {
+		let array = numbers.map((n) => Dice.truncateTo(n));
 
+		//let array = numbers;
 		array.length = 4;
 		
 		let key = array.join('');
@@ -92,7 +101,8 @@ class DisplayNumbersAsList extends Component {
 
   render() {
     //return this.renderAsDiscs();
-    return this.renderAsSquares();
+    //return this.renderAsSquares();
+		return (<div></div>);
   }
 
   renderAsDiscs() {
@@ -144,8 +154,10 @@ class RandomWord extends Component {
   generateNewWord() {
     this.setState({numbers: Dice.throwMany()})    
 		if (this.state.list != null) {
-			console.log('list length: ', this.state.list.length);
-			let k = Dice.numbersArrayToNumber(this.state.numbers);
+			console.log('list length: ', this.state.list.size);
+			//let k = Dice.dicesToKey(this.state.numbers);
+			//console.log('key: ', k);
+			let k = this.state.numbers;
 			console.log('key: ', k);
 			let newWord = this.state.list.get(k);
 			console.log('word from key ', newWord);
