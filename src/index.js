@@ -7,21 +7,17 @@ import './style.css';
 var dicewareListUrl = require('./diceware-en.txt');
 
 class Dice {
-  static generate(size = 6) {
-    if (size < 1) {
-      throw new Error("[RandomNuberGenerator]: requested size of random array must be greater than 1");
+  static throwMany(dices = 6) {
+    if (dices < 1) {
+      throw new Error("[Dice]: requested dices of random array must be greater than 1");
     }
-    let numbers = new Uint32Array(size);
+    let numbers = new Uint32Array(dices);
     window.crypto.getRandomValues(numbers);
 
     return Array.from(numbers);
   }
 
-  static arrayToNumber(array) {
-    
-  }
-
-  static numTo6(n) {
+  static truncateTo(n) {
     if (n > 6) {
       return (n % 6 + 1);
     } else {
@@ -30,10 +26,9 @@ class Dice {
   }
 
 	static numbersArrayToNumber(number) {
-		let array = number.map((n) => Dice.numTo6(n));
+		let array = number.map((n) => Dice.truncateTo(n));
 
-		array.pop();
-		array.pop();
+		array.length = 4;
 		
 		let key = array.join('');
 		return key;
@@ -82,7 +77,7 @@ class DisplayNumbersAsList extends Component {
   renderAsSquares() {
     let numbers = this.props.numbers;
     let listItems = Array.from(numbers).map((n) =>
-      <li key={n}>{Dice.numTo6(n)}</li>);
+      <li key={n}>{Dice.truncateTo(n)}</li>);
 
     /*var displayStyle = {
       listStyleType: 'square'
@@ -106,7 +101,7 @@ class DisplayNumbersAsList extends Component {
 
     return (
       <ul> {Array.from(numbers).map((n) =>
-        <li key={n}>{Dice.numTo6(n)}</li>)}
+        <li key={n}>{Dice.truncateTo(n)}</li>)}
       </ul>
     );
   }
@@ -146,7 +141,7 @@ class RandomWord extends Component {
 	}
 
   generateNewWord() {
-    this.setState({numbers: Dice.generate(6)})    
+    this.setState({numbers: Dice.throwMany()})    
 		if (this.state.list != null) {
 			console.log('list length: ', this.state.list.length);
 			let k = Dice.numbersArrayToNumber(this.state.numbers);
