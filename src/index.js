@@ -5,9 +5,10 @@ import './style.css';
 // list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt
 // for the sake of speed, list of words is included as part of the project
 var dicewareListUrl = require('./diceware-en.txt');
+const diceCount = 4;
 
 class Dice {
-  static throwMany(dices = 6) {
+  static throwMany(dices) {
     if (dices < 1) {
       throw new Error('[Dice.throwMany]: at least one dice has to be thrown!');
     }
@@ -15,11 +16,10 @@ class Dice {
     window.crypto.getRandomValues(numbers);
 
 		let array = Array.from(numbers);
-		let k = Dice.dicesToKey(array);
-		return k; 
+		return Dice.dicesToKey(array);
   }
 
-  static truncateTo(n) {
+  static truncate(n) {
     if (n > 6) {
       return (n % 6 + 1);
     } else {
@@ -28,8 +28,10 @@ class Dice {
   }
 
 	static dicesToKey(numbers) {
-		let array = numbers.map((n) => Dice.truncateTo(n));
-		array.length = 4;
+		let array = numbers.map((n) => Dice.truncate(n));
+		if (array.length > diceCount) {
+			array.length = 4; 
+		}
 		let key = array.join('');
 		return key;
 	}
@@ -106,7 +108,7 @@ class Diceware extends Component {
 	}
 
   generateNewWord() {
-		let key = Dice.throwMany();
+		let key = Dice.throwMany(diceCount);
 		this.setState({numbers: key});
 			let newWord = this.state.list.get(key);
 			this.setState({word: newWord });
