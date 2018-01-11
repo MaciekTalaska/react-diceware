@@ -8,9 +8,9 @@ var dicewareListUrl = require('./diceware-en.txt');
 const diceCount = 4;
 
 class Dice {
-  static throwMany(dices) {
+  static rollDices(dices) {
     if (dices < 1) {
-      throw new Error('[Dice.throwMany]: at least one dice has to be thrown!');
+      throw new Error('[Dice.rollDices]: at least one dice has to be thrown!');
     }
     let numbers = new Uint32Array(dices);
     window.crypto.getRandomValues(numbers);
@@ -108,7 +108,7 @@ class Diceware extends Component {
 	}
 
   generateNewWord() {
-		let key = Dice.throwMany(diceCount);
+		let key = Dice.rollDices(diceCount);
 		this.setState({numbers: key});
 			let newWord = this.state.list.get(key);
 			this.setState({word: newWord });
