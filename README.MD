@@ -9,4 +9,4 @@ What is diceware? Diceware is a method of generating passwords that are easy to 
 
 More on diceware method: http://world.std.com/~reinhold/diceware.html
 
-**Note:** Diceware it trademark of A G Reinhold.
+**Note:** Diceware is trademark of A G Reinhold.
