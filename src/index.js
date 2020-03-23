@@ -92,12 +92,13 @@ class Diceware extends Component {
       word: null,
     };
     this.generateNewWord = this.generateNewWord.bind(this);
+    this.generatePassword = this.generatePassword.bind(this);
   }
 
   componentWillMount() {
     WordsRepository.loadWordsList().then(result => {
       this.setState({list: result});
-      this.generateNewWord();
+      this.generatePassword();
     });
   }
 
@@ -108,11 +109,24 @@ class Diceware extends Component {
     this.setState({word: newWord});
   }
 
+  generatePassword() {
+    let password = "";
+    let words = [];
+    for (let i = 0; i < 4; i++) {
+      let key = Dice.rollDices(diceCount);
+      let newWord = this.state.list.get(key);
+      words.push(newWord);
+    }
+    password = words.join(".");
+    console.log('password: ', password);
+    this.setState({word: password});
+  }
+
   render() {
     return (
       <div>
         <DiceWord word={this.state.word} />
-        <DiceButton onNewNumberRequest={this.generateNewWord} />
+        <DiceButton onNewNumberRequest={this.generatePassword} />
       </div>
     );
   }
@@ -120,7 +134,7 @@ class Diceware extends Component {
 
 class ApplicationName extends Component {
   render() {
-    return <h1>Diceware Password Generator</h1>;
+    return <h1>Diceware Password Generator (in ReactJS)</h1>;
   }
 }
 
