@@ -2,6 +2,11 @@
   font-family: Lato;
 }
 
+main {
+  font-family: sans-serif;
+  text-align: center;
+}
+
 button {
   background: #ff3e00;
   color: white;

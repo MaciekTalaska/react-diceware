@@ -74,7 +74,7 @@ class DiceButton extends Component {
 class DicewarePassword extends Component {
 
   render() {
-    return <h2>{this.props.password}</h2>;
+    return <p>{this.props.password}</p>;
   }
 }
 
@@ -90,9 +90,11 @@ class DicewarePasswordSeparator extends Component {
 
   render() {
     return <div>
-      <label class="column-left">separator: </label>
+      <label className="column-left"
+              htmlFor="separatorInput"
+              >separator: </label>
       <input  name="separatorInput" 
-              class="column-right"
+              className="column-right"
               value={this.props.separator}
               onChange={this.handleChange}
               ></input>
@@ -112,9 +114,11 @@ class DicewaPassswordLength extends Component {
 
   render() {
     return <div>
-      <label class="column-left">password length: </label>
+      <label  className="column-left"
+              htmlFor="passwordLengthInput"
+              >password length: </label>
       <input  name="passwordLengthInput" 
-              class="column-right"
+              className="column-right"
               value={this.props.passwordLength}
               onChange={this.handleChange}
               type={"number"}
@@ -168,7 +172,7 @@ class Diceware extends Component {
 
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <DicewaPassswordLength 
           passwordLength={this.state.passwordLength}
           updatePasswordLength={this.updatePasswordLength}></DicewaPassswordLength>
