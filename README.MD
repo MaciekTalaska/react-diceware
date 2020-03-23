@@ -1,9 +1,14 @@
+React-Diceware
+====
+
+This is a simple ReactJS based diceware password generator. At the moment it uses only one list of words (in English).
+
 Want to check how it works? Go to: https://maciektalaska.github.io/react-diceware/
 
+What is diceware? 
+----
 
-This is a simple ReactJS based diceware password generator. It generates single word at a time, and uses only one list of words (in English).
-
-What is diceware? Diceware is a method of generating passwords that are easy to remember. XKCD comic (https://xkcd.com) has a great explanation:
+Diceware is a method of generating passwords that are easy to remember. XKCD comic (https://xkcd.com) has a great explanation:
 
 ![alt text](https://imgs.xkcd.com/comics/password_strength.png "xkcd on Diceware")
 
