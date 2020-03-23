@@ -71,15 +71,61 @@ class DiceButton extends Component {
   }
 }
 
-class DiceWord extends Component {
+class DicewarePassword extends Component {
   constructor(props) {
     super(props);
-    console.log('ths.props.word: ', this.props.word);
+    console.log('ths.props.password: ', this.props.password);
   }
 
   render() {
-    console.log('[DiceWord.render] this.props.word: ', this.props.word);
-    return <h2>Current word is: {this.props.word}</h2>;
+    console.log('[DicewarePassword.render] this.props.password: ', this.props.password);
+    return <h2>Current password is: {this.props.password}</h2>;
+  }
+}
+
+class DicewarePasswordSeparator extends Component {
+  constructor(props) {
+    super(props);
+    console.log('DicewarePassswordSeparator.ctor, this.props.separator: ', this.props.separator);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.props.updateSeparator(e.target.value);
+  }
+
+  render() {
+    return <div>
+      <label>separator: </label>
+      <input  name="separatorInput" 
+              value={this.props.separator}
+              onChange={this.handleChange}
+              ></input>
+    </div>
+  }
+}
+
+class DicewaPassswordLength extends Component {
+  constructor(props) {
+    super(props);
+    console.log('DicewarePasswordLength.ctor, this.props.passwordLength: ', this.props.passwordLength);
+    this.handleChange= this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    // this.setState({passwordLength: e.target.value})
+    console.log("DicewarePasswordLenght, handleChange: ", e.target.value);
+    this.props.updatePasswordLength(e.target.value);
+  }
+
+  render() {
+    return <div>
+      <label>password length: </label>
+      <input  name="passwordLengthInput" 
+              value={this.props.passwordLength}
+              onChange={this.handleChange}
+              ></input>
+    </div>;
   }
 }
 
@@ -89,10 +135,13 @@ class Diceware extends Component {
     this.state = {
       numbers: [],
       list: null,
-      word: null,
+      password: null,
+      separator: "-",
+      passwordLength: 6,
     };
-    this.generateNewWord = this.generateNewWord.bind(this);
     this.generatePassword = this.generatePassword.bind(this);
+    this.updatePasswordLength = this.updatePasswordLength.bind(this);
+    this.updateSeparator = this.updateSeparator.bind(this);
   }
 
   componentWillMount() {
@@ -102,31 +151,41 @@ class Diceware extends Component {
     });
   }
 
-  generateNewWord() {
-    let key = Dice.rollDices(diceCount);
-    this.setState({numbers: key});
-    let newWord = this.state.list.get(key);
-    this.setState({word: newWord});
+  updatePasswordLength(value) {
+    this.setState({passwordLength: value})
   }
 
+  updateSeparator(value) {
+    this.setState({separator: value})
+  }
+  
   generatePassword() {
-    let password = "";
     let words = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < this.state.passwordLength; i++) {
       let key = Dice.rollDices(diceCount);
       let newWord = this.state.list.get(key);
       words.push(newWord);
     }
-    password = words.join(".");
+    let password = words.join(this.state.separator);
     console.log('password: ', password);
-    this.setState({word: password});
+    this.setState({password: password});
+    console.log('this.state.password: ', this.state.password);
   }
 
   render() {
     return (
       <div>
-        <DiceWord word={this.state.word} />
-        <DiceButton onNewNumberRequest={this.generatePassword} />
+        <DicewaPassswordLength 
+          passwordLength={this.state.passwordLength}
+          updatePasswordLength={this.updatePasswordLength}></DicewaPassswordLength>
+        <DicewarePasswordSeparator 
+          separator={this.state.separator}
+          updateSeparator={this.updateSeparator}
+          ></DicewarePasswordSeparator>
+        <DiceButton 
+          onNewNumberRequest={this.generatePassword} />
+        <DicewarePassword 
+          password={this.state.password} />
       </div>
     );
   }
