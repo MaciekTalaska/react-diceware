@@ -72,13 +72,8 @@ class DiceButton extends Component {
 }
 
 class DicewarePassword extends Component {
-  constructor(props) {
-    super(props);
-    console.log('ths.props.password: ', this.props.password);
-  }
 
   render() {
-    console.log('[DicewarePassword.render] this.props.password: ', this.props.password);
     return <h2>Current password is: {this.props.password}</h2>;
   }
 }
@@ -86,7 +81,6 @@ class DicewarePassword extends Component {
 class DicewarePasswordSeparator extends Component {
   constructor(props) {
     super(props);
-    console.log('DicewarePassswordSeparator.ctor, this.props.separator: ', this.props.separator);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -108,13 +102,10 @@ class DicewarePasswordSeparator extends Component {
 class DicewaPassswordLength extends Component {
   constructor(props) {
     super(props);
-    console.log('DicewarePasswordLength.ctor, this.props.passwordLength: ', this.props.passwordLength);
     this.handleChange= this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    // this.setState({passwordLength: e.target.value})
-    console.log("DicewarePasswordLenght, handleChange: ", e.target.value);
     this.props.updatePasswordLength(e.target.value);
   }
 
@@ -167,9 +158,7 @@ class Diceware extends Component {
       words.push(newWord);
     }
     let password = words.join(this.state.separator);
-    console.log('password: ', password);
     this.setState({password: password});
-    console.log('this.state.password: ', this.state.password);
   }
 
   render() {
