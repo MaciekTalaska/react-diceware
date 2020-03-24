@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import './style.css';
 import DicewareButton from './diceware-button';
-import DicewarePasswordRenderer from './diceware-password';
+import DicewarePasswordRenderer from './diceware-passwordrenderer';
 import DicewarePasswordSeparator from './diceware-passwordseparator';
 import DicewarePasswordLength from './diceware-passwordlength';
 import DicewareLanguage from './diceware-language';
