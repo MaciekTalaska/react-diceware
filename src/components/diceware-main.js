@@ -4,18 +4,16 @@ import DicewarePasswordRenderer from './diceware-components/diceware-passwordren
 import DicewarePasswordSeparator from './diceware-components/diceware-passwordseparator';
 import DicewarePasswordLength from './diceware-components/diceware-passwordlength';
 import DicewareLanguage from './diceware-components/diceware-language';
-import Dice from '../dice';
-import WordsRepository from '../repository';
-
-const diceCount = 4;
+import getRandom from '../dice';
+import getWordsMap from '../repository';
 
 class DicewarePasswordGenerator extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numbers: [],
-      list: null,
+      repo: new Map(),
       password: null,
+      language: "en",
       separator: "-",
       passwordLength: 6,
     };
@@ -25,10 +23,11 @@ class DicewarePasswordGenerator extends Component {
   }
 
   componentWillMount() {
-    WordsRepository.loadWordsList().then(result => {
-      this.setState({list: result});
-      this.generatePassword();
-    });
+    getWordsMap(this.state.language).then(result => {
+      let repository = this.state.repo;
+      repository.set(this.state.language, result);
+      this.setState({repo: repository});
+    })
   }
 
   updatePasswordLength(value) {
@@ -40,9 +39,10 @@ class DicewarePasswordGenerator extends Component {
   }
   
   generatePassword() {
-    let words = new Array(this.state.passwordLength);
-    words = words.fill().map(_ => this.state.list.get(Dice.rollDices(diceCount)));
-    let password = words.join(this.state.separator);
+    let allwords = new Array(this.state.passwordLength);
+    let words = this.state.repo.get(this.state.language);
+    allwords = allwords.fill().map(_ => words[getRandom() % words.length]);
+    let password = allwords.join(this.state.separator);
     this.setState({password: password});
   }
 

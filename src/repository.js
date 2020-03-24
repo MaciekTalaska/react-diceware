@@ -1,25 +1,34 @@
-// list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt
-// for the sake of speed, list of words is included as part of the project
-
-var dicewareListUrl = require('./diceware-en.txt');
-
-class WordsRepository {
-  static loadWordsList() {
-    return new Promise((resolve, reject) => {
-      fetch(dicewareListUrl)
-        .then(res => res.text())
-        .then(data => {
-          let list = Array.from(data.split(/\n/));
-          let map = new Map();
-
-          list.forEach(line => {
-            let [k, v] = line.split(/\t/);
-            map.set(k, v);
-          });
-          resolve(map);
-        });
-    });
-  }
+let getWordsMap = function(language) {
+  let url = window.location.href + "diceware-" + language + ".txt";
+  return loadWordsList(url).then(data => data);
 }
 
-export default WordsRepository;
+// returns list (array) of words
+function getWordsListFromString(data) {
+  let list = Array.from(data.split(/\n/));
+  let newList = null;
+
+  list.forEach((line, index) => {
+    let [k, v] = line.split(/\s+/);
+    if (newList == null) {
+      newList = new Array(list.length);
+    }
+    newList[index] = (v) ? v : k;
+  });
+  return newList;
+}
+
+function loadWordsList(url) {
+  return new Promise((resolve, reject) => {
+    let headers = new Headers();
+    headers.append('Content-type', 'text/plain; charset=UTF-8');
+    fetch(url, headers)
+      .then(res => res.text())
+      .then(data => {
+        let result = getWordsListFromString(data);
+        resolve(result);
+      })
+  });
+}
+
+export default getWordsMap;
