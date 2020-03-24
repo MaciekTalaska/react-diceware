@@ -14,7 +14,7 @@ class DicewarePasswordLength extends Component {
     return <div>
       <label  className="column-left"
               htmlFor="passwordLengthInput"
-              >password length: </label>
+              >words per password (4-10): </label>
       <input  name="passwordLengthInput" 
               className="column-right"
               value={this.props.passwordLength}

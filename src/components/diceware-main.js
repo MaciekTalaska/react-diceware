@@ -52,19 +52,21 @@ class DicewarePasswordGenerator extends Component {
 
   render() {
     return (
-      <div className="container">
-        <DicewareLanguage></DicewareLanguage>
-        <DicewarePasswordLength
-          passwordLength={this.state.passwordLength}
-          updatePasswordLength={this.updatePasswordLength}></DicewarePasswordLength>
-        <DicewarePasswordSeparator 
-          separator={this.state.separator}
-          updateSeparator={this.updateSeparator}
-          ></DicewarePasswordSeparator>
-        <DicewareButton 
-          onNewNumberRequest={this.generatePassword} />
-        <DicewarePasswordRenderer
-          password={this.state.password} />
+      <div>
+        <div className="container">
+          <DicewareLanguage></DicewareLanguage>
+          <DicewarePasswordLength
+            passwordLength={this.state.passwordLength}
+            updatePasswordLength={this.updatePasswordLength}></DicewarePasswordLength>
+          <DicewarePasswordSeparator 
+            separator={this.state.separator}
+            updateSeparator={this.updateSeparator}
+            ></DicewarePasswordSeparator>
+          <DicewareButton 
+            onNewNumberRequest={this.generatePassword} />
+        </div>
+      <DicewarePasswordRenderer
+        password={this.state.password} />
       </div>
     );
   }

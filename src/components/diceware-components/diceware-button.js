@@ -12,7 +12,7 @@ class DicewareButton extends Component {
 
   render() {
     return <div>
-      <button onClick={this.forceRefresh}>Generate!</button>
+      <button onClick={this.forceRefresh}>Generate password</button>
     </div>;
   }
 }
