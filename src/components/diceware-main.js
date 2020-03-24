@@ -40,12 +40,8 @@ class DicewarePasswordGenerator extends Component {
   }
   
   generatePassword() {
-    let words = [];
-    for (let i = 0; i < this.state.passwordLength; i++) {
-      let key = Dice.rollDices(diceCount);
-      let newWord = this.state.list.get(key);
-      words.push(newWord);
-    }
+    let words = new Array(this.state.passwordLength);
+    words = words.fill().map(_ => this.state.list.get(Dice.rollDices(diceCount)));
     let password = words.join(this.state.separator);
     this.setState({password: password});
   }
