@@ -56,7 +56,7 @@ class WordsRepository {
   }
 }
 
-class DiceButton extends Component {
+class DicewareButton extends Component {
   constructor(props) {
     super(props);
     this.forceRefresh = this.forceRefresh.bind(this);
@@ -201,7 +201,7 @@ class Diceware extends Component {
           separator={this.state.separator}
           updateSeparator={this.updateSeparator}
           ></DicewarePasswordSeparator>
-        <DiceButton 
+        <DicewareButton 
           onNewNumberRequest={this.generatePassword} />
         <DicewarePassword 
           password={this.state.password} />
