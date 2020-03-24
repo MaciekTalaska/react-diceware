@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-class DicewarePassword extends Component {
+class DicewarePasswordRenderer extends Component {
 
   render() {
     return <p>{this.props.password}</p>;
   }
 }
 
-export default DicewarePassword;
+export default DicewarePasswordRenderer;

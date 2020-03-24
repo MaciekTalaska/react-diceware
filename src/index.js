@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import './style.css';
 import DicewareButton from './diceware-button';
-import DicewarePassword from './diceware-password';
+import DicewarePasswordRenderer from './diceware-password';
 import DicewarePasswordSeparator from './diceware-passwordseparator';
 import DicewarePasswordLength from './diceware-passwordlength';
 import DicewareLanguage from './diceware-language';
@@ -115,7 +115,7 @@ class Diceware extends Component {
           ></DicewarePasswordSeparator>
         <DicewareButton 
           onNewNumberRequest={this.generatePassword} />
-        <DicewarePassword 
+        <DicewarePasswordRenderer
           password={this.state.password} />
       </div>
     );
