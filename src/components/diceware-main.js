@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import DicewareButton from './diceware-button';
-import DicewarePasswordRenderer from './diceware-passwordrenderer';
-import DicewarePasswordSeparator from './diceware-passwordseparator';
-import DicewarePasswordLength from './diceware-passwordlength';
-import DicewareLanguage from './diceware-language';
-import Dice from './dice';
-import WordsRepository from './repository';
+import DicewareButton from './diceware-components/diceware-button';
+import DicewarePasswordRenderer from './diceware-components/diceware-passwordrenderer';
+import DicewarePasswordSeparator from './diceware-components/diceware-passwordseparator';
+import DicewarePasswordLength from './diceware-components/diceware-passwordlength';
+import DicewareLanguage from './diceware-components/diceware-language';
+import Dice from '../dice';
+import WordsRepository from '../repository';
 
 const diceCount = 4;
 

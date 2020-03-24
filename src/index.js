@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import './style.css';
-import DicewarePasswordGenerator from './diceware-main';
+import DicewarePasswordGenerator from './components/diceware-main';
 
 // list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt
 // for the sake of speed, list of words is included as part of the project
