@@ -7,7 +7,8 @@ class DicewarePasswordLength extends Component {
   }
 
   handleChange(e) {
-    this.props.updatePasswordLength(e.target.value);
+    let value = Number(e.target.value);
+    this.props.updatePasswordLength(value);
   }
 
   render() {
