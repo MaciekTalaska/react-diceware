@@ -1,3 +1,6 @@
+// list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt
+// for the sake of speed, list of words is included as part of the project
+
 var dicewareListUrl = require('./diceware-en.txt');
 
 class WordsRepository {
