@@ -67,7 +67,9 @@ class DiceButton extends Component {
   }
 
   render() {
-    return <button onClick={this.forceRefresh}>Generate!</button>;
+    return <div>
+      <button onClick={this.forceRefresh}>Generate!</button>
+    </div>;
   }
 }
 
@@ -198,7 +200,7 @@ class ApplicationName extends Component {
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="main">
         <ApplicationName />
         <Diceware />
       </div>
