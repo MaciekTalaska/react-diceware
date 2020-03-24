@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import './style.css';
+import DicewareButton from './diceware-button';
+import DicewarePassword from './diceware-password';
+import DicewarePasswordSeparator from './diceware-passwordseparator';
+import DicewarePasswordLength from './diceware-passwordlength';
+import DicewareLanguage from './diceware-language';
 
 // list of words taken from: https://www.eff.org/files/2016/09/08/eff_short_wordlist_2_0.txt
 // for the sake of speed, list of words is included as part of the project
@@ -56,99 +61,6 @@ class WordsRepository {
   }
 }
 
-class DicewareButton extends Component {
-  constructor(props) {
-    super(props);
-    this.forceRefresh = this.forceRefresh.bind(this);
-  }
-
-  forceRefresh(e) {
-    this.props.onNewNumberRequest(e);
-  }
-
-  render() {
-    return <div>
-      <button onClick={this.forceRefresh}>Generate!</button>
-    </div>;
-  }
-}
-
-class DicewarePassword extends Component {
-
-  render() {
-    return <p>{this.props.password}</p>;
-  }
-}
-
-class DicewarePasswordSeparator extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e) {
-    this.props.updateSeparator(e.target.value);
-  }
-
-  render() {
-    return <div>
-      <label className="column-left"
-              htmlFor="separatorInput"
-              >separator: </label>
-      <input  name="separatorInput" 
-              className="column-right"
-              value={this.props.separator}
-              onChange={this.handleChange}
-              ></input>
-    </div>
-  }
-}
-
-class DicewareLanguage extends Component {
-
-  render() {
-    return <div>
-      <label  htmlFor="languageInput"
-              className="column-left"
-              >language:</label>
-      <select name="languageInput"
-              className="column-right">
-        <option value="en">English</option>
-        <option value="fi">Finnish</option>
-        <option value="mi">Maori</option>
-        <option value="pl">Polish</option>
-      </select>
-    </div>    
-  }
-}
-
-class DicewaPassswordLength extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange= this.handleChange.bind(this);
-  }
-
-  handleChange(e) {
-    this.props.updatePasswordLength(e.target.value);
-  }
-
-  render() {
-    return <div>
-      <label  className="column-left"
-              htmlFor="passwordLengthInput"
-              >password length: </label>
-      <input  name="passwordLengthInput" 
-              className="column-right"
-              value={this.props.passwordLength}
-              onChange={this.handleChange}
-              type={"number"}
-              min={4}
-              max={10}
-              ></input>
-    </div>;
-  }
-}
-
 class Diceware extends Component {
   constructor(props) {
     super(props);
@@ -194,9 +106,9 @@ class Diceware extends Component {
     return (
       <div className="container">
         <DicewareLanguage></DicewareLanguage>
-        <DicewaPassswordLength 
+        <DicewarePasswordLength
           passwordLength={this.state.passwordLength}
-          updatePasswordLength={this.updatePasswordLength}></DicewaPassswordLength>
+          updatePasswordLength={this.updatePasswordLength}></DicewarePasswordLength>
         <DicewarePasswordSeparator 
           separator={this.state.separator}
           updateSeparator={this.updateSeparator}
