@@ -61,7 +61,7 @@ class WordsRepository {
   }
 }
 
-class Diceware extends Component {
+class DicewarePasswordGenerator extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -133,7 +133,7 @@ class App extends Component {
     return (
       <div className="main">
         <ApplicationName />
-        <Diceware />
+        <DicewarePasswordGenerator />
       </div>
     );
   }
