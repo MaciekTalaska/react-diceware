@@ -11,7 +11,7 @@ class DicewarePasswordGenerator extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      repo: new Map(),
+      repository: new Map(),
       password: null,
       language: "en",
       separator: "-",
@@ -29,15 +29,15 @@ class DicewarePasswordGenerator extends Component {
 
   updateLanguageInternal(language) {
     getWordsMap(language).then(result => {
-      let repository = this.state.repo;
+      let repository = this.state.repository;
       repository.set(language, result);
-      this.setState({repo: repository});
+      this.setState({repository: repository});
     })
   }
 
   updateLanguage(value) {
     this.setState({language: value})
-    if ( !this.state.repo.has(value)) {
+    if ( !this.state.repository.has(value)) {
       this.updateLanguageInternal(value);
     }
   }
@@ -52,7 +52,7 @@ class DicewarePasswordGenerator extends Component {
 
   generatePassword() {
     let allwords = new Array(this.state.passwordLength);
-    let words = this.state.repo.get(this.state.language);
+    let words = this.state.repository.get(this.state.language);
     allwords = allwords.fill().map(_ => words[getRandom() % words.length]);
     let password = allwords.join(this.state.separator);
     this.setState({password: password});
