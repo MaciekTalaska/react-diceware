@@ -20,6 +20,7 @@ class DicewarePasswordGenerator extends Component {
     this.generatePassword = this.generatePassword.bind(this);
     this.updatePasswordLength = this.updatePasswordLength.bind(this);
     this.updateSeparator = this.updateSeparator.bind(this);
+    this.updateLanguage = this.updateLanguage.bind(this);
   }
 
   componentWillMount() {
@@ -37,6 +38,17 @@ class DicewarePasswordGenerator extends Component {
   updateSeparator(value) {
     this.setState({separator: value})
   }
+
+  updateLanguage(value) {
+    this.setState({language: value})
+    if ( !this.state.repo.has(value)) {
+      getWordsMap(value).then(result => {
+        let repository = this.state.repo;
+        repository.set(value, result);
+        this.setState({repo: repository});
+      })      
+    }
+  }
   
   generatePassword() {
     let allwords = new Array(this.state.passwordLength);
@@ -50,7 +62,9 @@ class DicewarePasswordGenerator extends Component {
     return (
       <div>
         <div className="container">
-          <DicewareLanguage></DicewareLanguage>
+          <DicewareLanguage
+            updatePasswordLanguage={this.updateLanguage}
+            ></DicewareLanguage>
           <DicewarePasswordLength
             passwordLength={this.state.passwordLength}
             updatePasswordLength={this.updatePasswordLength}></DicewarePasswordLength>
