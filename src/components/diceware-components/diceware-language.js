@@ -8,7 +8,6 @@ class DicewareLanguage extends Component {
 
   handleChange(e) {
     this.props.updatePasswordLanguage(e.target.value);
-    console.log('DicewareLanguage, onChange: ', e.target.value);
   }
 
   render() {
