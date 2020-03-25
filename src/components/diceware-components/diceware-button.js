@@ -3,16 +3,16 @@ import React, {Component} from 'react';
 class DicewareButton extends Component {
   constructor(props) {
     super(props);
-    this.forceRefresh = this.forceRefresh.bind(this);
+    this.generatePassword = this.generatePassword.bind(this);
   }
 
-  forceRefresh(e) {
-    this.props.onNewNumberRequest(e);
+  generatePassword(e) {
+    this.props.regeneratePassword(e);
   }
 
   render() {
     return <div>
-      <button onClick={this.forceRefresh}>Generate password</button>
+      <button onClick={this.generatePassword}>Generate password</button>
     </div>;
   }
 }
