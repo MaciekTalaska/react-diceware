@@ -1,7 +1,7 @@
 {
   "name": "react-diceware",
   "description": "",
-  "homepage": "https://maciektalaska.github.io/react-diceware",
+  "homepage": ".",
   "dependencies": {
     "react": "16.13.1",
     "react-dom": "16.13.1",
