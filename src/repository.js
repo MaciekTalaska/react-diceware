@@ -1,5 +1,5 @@
 let getWordsMap = function(language) {
-  let url = window.location.href + "diceware-" + language + ".txt";
+  let url = [window.location.origin + process.env.PUBLIC_URL, "diceware-" + language + ".txt"].join("/");
   return loadWordsList(url).then(data => data);
 }
 

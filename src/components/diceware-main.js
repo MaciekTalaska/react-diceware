@@ -23,7 +23,7 @@ class DicewarePasswordGenerator extends Component {
     this.updateLanguage = this.updateLanguage.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.updateLanguageInternal(this.state.language);
   }
 
