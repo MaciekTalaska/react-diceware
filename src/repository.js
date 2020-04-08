@@ -19,7 +19,7 @@ function getWordsListFromString(data) {
 }
 
 function loadWordsList(url) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     let headers = new Headers();
     headers.append('Content-type', 'text/plain; charset=UTF-8');
     fetch(url, headers)
