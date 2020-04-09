@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class DicewarePasswordLength extends Component {
   constructor(props) {
@@ -27,5 +28,10 @@ class DicewarePasswordLength extends Component {
     </div>;
   }
 }
+
+DicewarePasswordLength.propTypes = {
+  updatePasswordLength: PropTypes.func.isRequired,
+  passwordLength: PropTypes.number.isRequired
+};
 
 export default DicewarePasswordLength;

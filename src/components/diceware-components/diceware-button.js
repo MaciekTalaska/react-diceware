@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class DicewareButton extends Component {
   constructor(props) {
@@ -16,5 +17,9 @@ class DicewareButton extends Component {
     </div>;
   }
 }
+
+DicewareButton.propTypes = {
+  regeneratePassword: PropTypes.func.isRequired,
+};
 
 export default DicewareButton;

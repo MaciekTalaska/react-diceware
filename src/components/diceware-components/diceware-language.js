@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import propTypes from 'prop-types';
 
 class DicewareLanguage extends Component {
   constructor(props) {
@@ -26,5 +27,9 @@ class DicewareLanguage extends Component {
     </div>    
   }
 }
+
+DicewareLanguage.propTypes = {
+  updatePasswordLanguage: propTypes.func.isRequired
+};
 
 export default DicewareLanguage;

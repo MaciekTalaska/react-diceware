@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class DicewarePasswordSeparator extends Component {
   constructor(props) {
@@ -23,5 +24,10 @@ class DicewarePasswordSeparator extends Component {
     </div>
   }
 }
+
+DicewarePasswordSeparator.propTypes = {
+  updateSeparator: PropTypes.func.isRequired,
+  separator: PropTypes.func.isRequired
+};
 
 export default DicewarePasswordSeparator;
