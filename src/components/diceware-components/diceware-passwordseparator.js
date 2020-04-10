@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class DicewarePasswordSeparator extends Component {
   constructor(props) {
@@ -12,22 +12,25 @@ class DicewarePasswordSeparator extends Component {
   }
 
   render() {
-    return <div>
-      <label className="column-left"
-              htmlFor="separatorInput"
-              >separator: </label>
-      <input  name="separatorInput" 
-              className="column-right"
-              value={this.props.separator}
-              onChange={this.handleChange}
-              ></input>
-    </div>
+    return (
+      <div>
+        <label className="column-left" htmlFor="separatorInput">
+          separator:{" "}
+        </label>
+        <input
+          name="separatorInput"
+          className="column-right"
+          value={this.props.separator}
+          onChange={this.handleChange}
+        ></input>
+      </div>
+    );
   }
 }
 
 DicewarePasswordSeparator.propTypes = {
   updateSeparator: PropTypes.func.isRequired,
-  separator: PropTypes.func.isRequired
+  separator: PropTypes.func.isRequired,
 };
 
 export default DicewarePasswordSeparator;
