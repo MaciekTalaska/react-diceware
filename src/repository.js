@@ -1,7 +1,7 @@
-let getWordsMap = function(language) {
+let getWordsMap = function (language) {
   let url = window.location.href + "diceware-" + language + ".txt";
-  return loadWordsList(url).then(data => data);
-}
+  return loadWordsList(url).then((data) => data);
+};
 
 // returns list (array) of words
 function getWordsListFromString(data) {
@@ -13,7 +13,7 @@ function getWordsListFromString(data) {
     if (newList == null) {
       newList = new Array(list.length);
     }
-    newList[index] = (v) ? v : k;
+    newList[index] = v ? v : k;
   });
   return newList;
 }
@@ -21,13 +21,13 @@ function getWordsListFromString(data) {
 function loadWordsList(url) {
   return new Promise((resolve) => {
     let headers = new Headers();
-    headers.append('Content-type', 'text/plain; charset=UTF-8');
+    headers.append("Content-type", "text/plain; charset=UTF-8");
     fetch(url, headers)
-      .then(res => res.text())
-      .then(data => {
+      .then((res) => res.text())
+      .then((data) => {
         let result = getWordsListFromString(data);
         resolve(result);
-      })
+      });
   });
 }
 

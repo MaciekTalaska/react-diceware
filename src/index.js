@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {render} from 'react-dom';
-import './style.css';
-import DicewarePasswordGenerator from './components/diceware-main';
-import ProjectInfo from './components/project-info';
+import React, { Component } from "react";
+import { render } from "react-dom";
+import "./style.css";
+import DicewarePasswordGenerator from "./components/diceware-main";
+import ProjectInfo from "./components/project-info";
 
 class ApplicationName extends Component {
   render() {
@@ -22,4 +22,4 @@ class App extends Component {
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));

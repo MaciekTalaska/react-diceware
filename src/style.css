@@ -17,7 +17,7 @@ div {
 .container {
   width: 600px;
   border: 1px solid #ffffff;
-  
+
   /*margin: 0 auto;*/
   display: inline-grid;
   background-color: lightblue;
