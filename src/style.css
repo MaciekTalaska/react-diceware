@@ -38,3 +38,13 @@ div {
   float: right;
   box-sizing: border-box;
 }
+
+.password-area {
+  background-color: aliceblue;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}

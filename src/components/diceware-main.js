@@ -81,8 +81,8 @@ class DicewarePasswordGenerator extends Component {
             updateSeparator={this.updateSeparator}
           ></DicewarePasswordSeparator>
           <DicewareButton regeneratePassword={this.generatePassword} />
+          <DicewarePasswordRenderer password={this.state.password} />
         </div>
-        <DicewarePasswordRenderer password={this.state.password} />
       </div>
     );
   }
