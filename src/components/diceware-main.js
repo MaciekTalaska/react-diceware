@@ -15,7 +15,7 @@ class DicewarePasswordGenerator extends Component {
     super(props);
     this.state = {
       repository: new Map(),
-      password: null,
+      password: "",
       language: "en",
       separator: "-",
       passwordLength: 6,

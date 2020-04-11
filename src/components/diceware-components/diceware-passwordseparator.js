@@ -30,7 +30,7 @@ class DicewarePasswordSeparator extends Component {
 
 DicewarePasswordSeparator.propTypes = {
   updateSeparator: PropTypes.func.isRequired,
-  separator: PropTypes.func.isRequired,
+  separator: PropTypes.string.isRequired,
 };
 
 export default DicewarePasswordSeparator;
