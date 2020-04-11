@@ -24,8 +24,8 @@ class DicewarePasswordLength extends Component {
           value={this.props.passwordLength}
           onChange={this.handleChange}
           type={"number"}
-          min={4}
-          max={10}
+          min={this.props.minPasswordLength}
+          max={this.props.maxPasswordLength}
         ></input>
       </div>
     );
@@ -35,6 +35,8 @@ class DicewarePasswordLength extends Component {
 DicewarePasswordLength.propTypes = {
   updatePasswordLength: PropTypes.func.isRequired,
   passwordLength: PropTypes.number.isRequired,
+  maxPasswordLength: PropTypes.number.isRequired,
+  minPasswordLength: PropTypes.number.isRequired,
 };
 
 export default DicewarePasswordLength;

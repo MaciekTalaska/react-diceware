@@ -8,6 +8,7 @@ import getRandom from "../dice";
 import getWordsMap from "../repository";
 
 const MAX_PASSWORD_LENGHT = 10;
+const MIN_PASSWORD_LENGTH = 4;
 
 class DicewarePasswordGenerator extends Component {
   constructor(props) {
@@ -72,6 +73,8 @@ class DicewarePasswordGenerator extends Component {
           <DicewarePasswordLength
             passwordLength={this.state.passwordLength}
             updatePasswordLength={this.updatePasswordLength}
+            maxPasswordLength={MAX_PASSWORD_LENGHT}
+            minPasswordLength={MIN_PASSWORD_LENGTH}
           ></DicewarePasswordLength>
           <DicewarePasswordSeparator
             separator={this.state.separator}
