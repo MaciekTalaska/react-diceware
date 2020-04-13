@@ -9,6 +9,7 @@ import getWordsMap from "../repository";
 
 const MAX_PASSWORD_LENGHT = 10;
 const MIN_PASSWORD_LENGTH = 4;
+const DEFAULT_PASSWORD_LENGTH = 6;
 
 class DicewarePasswordGenerator extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class DicewarePasswordGenerator extends Component {
       password: "",
       language: "en",
       separator: "-",
-      passwordLength: 6,
+      passwordLength: DEFAULT_PASSWORD_LENGTH,
     };
     this.generatePassword = this.generatePassword.bind(this);
     this.updatePasswordLength = this.updatePasswordLength.bind(this);
