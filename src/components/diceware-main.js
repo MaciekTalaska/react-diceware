@@ -47,7 +47,12 @@ class DicewarePasswordGenerator extends Component {
   }
 
   updatePasswordLength(value) {
-    let len = value > MAX_PASSWORD_LENGHT ? MAX_PASSWORD_LENGHT : value;
+    let len =
+      value > MAX_PASSWORD_LENGHT
+        ? MAX_PASSWORD_LENGHT
+        : value < MIN_PASSWORD_LENGTH
+        ? MIN_PASSWORD_LENGTH
+        : value;
 
     this.setState({ passwordLength: len });
   }
