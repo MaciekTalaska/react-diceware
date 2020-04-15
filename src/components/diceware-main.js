@@ -4,8 +4,8 @@ import DicewarePasswordRenderer from "./diceware-components/diceware-passwordren
 import DicewarePasswordSeparator from "./diceware-components/diceware-passwordseparator";
 import DicewarePasswordLength from "./diceware-components/diceware-passwordlength";
 import DicewareLanguage from "./diceware-components/diceware-language";
-import getRandom from "../dice";
-import getWordsMap from "../repository";
+import getRandom from "./dice";
+import getWordsMap from "./repository";
 
 const MAX_PASSWORD_LENGHT = 10;
 const MIN_PASSWORD_LENGTH = 4;
