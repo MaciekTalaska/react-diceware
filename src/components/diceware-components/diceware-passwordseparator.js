@@ -22,7 +22,7 @@ class DicewarePasswordSeparator extends Component {
           className="column-right"
           value={this.props.separator}
           onChange={this.handleChange}
-        ></input>
+        />
       </div>
     );
   }

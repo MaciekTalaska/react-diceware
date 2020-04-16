@@ -27,7 +27,7 @@ class DicewarePasswordLength extends Component {
           type={"number"}
           min={this.props.minPasswordLength}
           max={this.props.maxPasswordLength}
-        ></input>
+        />
       </div>
     );
   }
