@@ -7,7 +7,7 @@ import DicewareLanguage from "./diceware-components/diceware-language";
 import getRandom from "./dice";
 import getWordsMap from "./repository";
 
-const MAX_PASSWORD_LENGHT = 10;
+const MAX_PASSWORD_LENGTH = 10;
 const MIN_PASSWORD_LENGTH = 4;
 const DEFAULT_PASSWORD_LENGTH = 6;
 
@@ -48,8 +48,8 @@ class DicewarePasswordGenerator extends Component {
 
   updatePasswordLength(value) {
     let len =
-      value > MAX_PASSWORD_LENGHT
-        ? MAX_PASSWORD_LENGHT
+      value > MAX_PASSWORD_LENGTH
+        ? MAX_PASSWORD_LENGTH
         : value < MIN_PASSWORD_LENGTH
         ? MIN_PASSWORD_LENGTH
         : value;
@@ -77,7 +77,7 @@ class DicewarePasswordGenerator extends Component {
           <DicewarePasswordLength
             passwordLength={this.state.passwordLength}
             updatePasswordLength={this.updatePasswordLength}
-            maxPasswordLength={MAX_PASSWORD_LENGHT}
+            maxPasswordLength={MAX_PASSWORD_LENGTH}
             minPasswordLength={MIN_PASSWORD_LENGTH}
           />
           <DicewarePasswordSeparator
