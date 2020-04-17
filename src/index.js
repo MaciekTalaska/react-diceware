@@ -16,7 +16,7 @@ class App extends Component {
       <div className="main">
         <ApplicationName />
         <DicewarePasswordGenerator />
-        <ProjectInfo></ProjectInfo>
+        <ProjectInfo />
       </div>
     );
   }
