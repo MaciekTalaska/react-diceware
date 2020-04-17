@@ -1,0 +1,43 @@
+button {
+  background: #ff3e00;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  margin: 10px;
+  text-transform: capitalize;
+  padding: 10px 20px;
+}
+
+div {
+  padding-bottom: 10px;
+}
+
+.container {
+  width: 600px;
+  border: 1px solid #ffffff;
+  display: inline-grid;
+  background-color: lightblue;
+  padding: 60px 60px 20px 60px;
+  border-radius: 5px;
+}
+
+.column-left {
+  float: left;
+  white-space: nowrap;
+}
+
+.column-right {
+  width: 300px;
+  float: right;
+  box-sizing: border-box;
+}
+
+.password-area {
+  background-color: aliceblue;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
