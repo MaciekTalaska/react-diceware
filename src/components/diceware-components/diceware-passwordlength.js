@@ -16,7 +16,7 @@ class DicewarePasswordLength extends Component {
 
   render() {
     return (
-      <DpgDiv className={styles.DpgDiv}>
+      <DpgDiv>
         <label className={styles["column-left"]} htmlFor="passwordLengthInput">
           words per password ({this.props.minPasswordLength}-
           {this.props.maxPasswordLength}):{" "}

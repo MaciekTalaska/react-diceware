@@ -15,7 +15,7 @@ class DicewareLanguage extends Component {
 
   render() {
     return (
-      <DpgDiv className={styles.div}>
+      <DpgDiv>
         <label htmlFor="languageInput" className={styles["column-left"]}>
           language:
         </label>
