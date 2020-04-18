@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import styles from "../diceware.module.css";
 
 class DicewareButton extends Component {
   constructor(props) {
@@ -13,8 +14,10 @@ class DicewareButton extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.generatePassword}>Generate password</button>
+      <div className={styles.div}>
+        <button className={styles.button} onClick={this.generatePassword}>
+          Generate password
+        </button>
       </div>
     );
   }

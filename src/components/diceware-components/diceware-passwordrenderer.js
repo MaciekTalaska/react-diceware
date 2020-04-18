@@ -10,7 +10,7 @@ class DicewarePasswordRenderer extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.div}>
         <textarea
           id="passwordArea"
           className={styles["password-area"]}
@@ -18,7 +18,10 @@ class DicewarePasswordRenderer extends Component {
           rows="1"
           value={this.props.password}
         />
-        <button onClick={this.copyPasswordToClipboard}>
+        <button
+          onClick={this.copyPasswordToClipboard}
+          className={styles.button}
+        >
           copy to clipboard
         </button>
       </div>
