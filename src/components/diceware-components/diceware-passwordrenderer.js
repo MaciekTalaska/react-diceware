@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "../diceware.module.css";
+import DpgButton from "./ui/button";
+import DpgDiv from "./ui/div";
 
 class DicewarePasswordRenderer extends Component {
   constructor(props) {
@@ -10,7 +12,7 @@ class DicewarePasswordRenderer extends Component {
 
   render() {
     return (
-      <div className={styles.div}>
+      <DpgDiv>
         <textarea
           id="passwordArea"
           className={styles["password-area"]}
@@ -18,13 +20,10 @@ class DicewarePasswordRenderer extends Component {
           rows="1"
           value={this.props.password}
         />
-        <button
-          onClick={this.copyPasswordToClipboard}
-          className={styles.button}
-        >
+        <DpgButton onClick={this.copyPasswordToClipboard}>
           copy to clipboard
-        </button>
-      </div>
+        </DpgButton>
+      </DpgDiv>
     );
   }
 

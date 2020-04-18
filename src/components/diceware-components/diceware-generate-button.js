@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "../diceware.module.css";
+import DpgButton from "./ui/button";
 
-class DicewareButton extends Component {
+class DicewareGenerateButton extends Component {
   constructor(props) {
     super(props);
     this.generatePassword = this.generatePassword.bind(this);
@@ -15,16 +16,14 @@ class DicewareButton extends Component {
   render() {
     return (
       <div className={styles.div}>
-        <button className={styles.button} onClick={this.generatePassword}>
-          Generate password
-        </button>
+        <DpgButton onClick={this.generatePassword}>Generate password</DpgButton>
       </div>
     );
   }
 }
 
-DicewareButton.propTypes = {
+DicewareGenerateButton.propTypes = {
   regeneratePassword: PropTypes.func.isRequired,
 };
 
-export default DicewareButton;
+export default DicewareGenerateButton;
