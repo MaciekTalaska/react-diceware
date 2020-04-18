@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 import styles from "../diceware.module.css";
+import DpgDiv from "./ui/div";
 
 class DicewareLanguage extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class DicewareLanguage extends Component {
 
   render() {
     return (
-      <div className={styles.div}>
+      <DpgDiv className={styles.div}>
         <label htmlFor="languageInput" className={styles["column-left"]}>
           language:
         </label>
@@ -28,7 +29,7 @@ class DicewareLanguage extends Component {
           <option value="mi">Maori</option>
           <option value="pl">Polish</option>
         </select>
-      </div>
+      </DpgDiv>
     );
   }
 }

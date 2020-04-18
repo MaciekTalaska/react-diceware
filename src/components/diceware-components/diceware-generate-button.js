@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "../diceware.module.css";
 import DpgButton from "./ui/button";
+import DpgDiv from "./ui/div";
 
 class DicewareGenerateButton extends Component {
   constructor(props) {
@@ -15,9 +16,9 @@ class DicewareGenerateButton extends Component {
 
   render() {
     return (
-      <div className={styles.div}>
+      <DpgDiv className={styles.DpgDiv}>
         <DpgButton onClick={this.generatePassword}>Generate password</DpgButton>
-      </div>
+      </DpgDiv>
     );
   }
 }
