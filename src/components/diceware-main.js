@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./diceware.css";
+import styles from "./diceware.module.css";
 import DicewareButton from "./diceware-components/diceware-button";
 import DicewarePasswordRenderer from "./diceware-components/diceware-passwordrenderer";
 import DicewarePasswordSeparator from "./diceware-components/diceware-passwordseparator";
@@ -73,7 +73,7 @@ class DicewarePasswordGenerator extends Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className={styles.container}>
           <DicewareLanguage updatePasswordLanguage={this.updateLanguage} />
           <DicewarePasswordLength
             passwordLength={this.state.passwordLength}

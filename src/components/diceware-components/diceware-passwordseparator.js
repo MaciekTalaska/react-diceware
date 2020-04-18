@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import styles from "../diceware.module.css";
 
 class DicewarePasswordSeparator extends Component {
   constructor(props) {
@@ -14,12 +15,12 @@ class DicewarePasswordSeparator extends Component {
   render() {
     return (
       <div>
-        <label className="column-left" htmlFor="separatorInput">
+        <label className={styles["column-left"]} htmlFor="separatorInput">
           separator:{" "}
         </label>
         <input
           name="separatorInput"
-          className="column-right"
+          className={styles["column-right"]}
           value={this.props.separator}
           onChange={this.handleChange}
         />

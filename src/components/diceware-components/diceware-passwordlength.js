@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import styles from "../diceware.module.css";
 
 class DicewarePasswordLength extends Component {
   constructor(props) {
@@ -15,13 +16,13 @@ class DicewarePasswordLength extends Component {
   render() {
     return (
       <div>
-        <label className="column-left" htmlFor="passwordLengthInput">
+        <label className={styles["column-left"]} htmlFor="passwordLengthInput">
           words per password ({this.props.minPasswordLength}-
           {this.props.maxPasswordLength}):{" "}
         </label>
         <input
           name="passwordLengthInput"
-          className="column-right"
+          className={styles["column-right"]}
           value={this.props.passwordLength}
           onChange={this.handleChange}
           type={"number"}

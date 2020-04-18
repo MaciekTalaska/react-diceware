@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
+import styles from "../diceware.module.css";
 
 class DicewareLanguage extends Component {
   constructor(props) {
@@ -14,12 +15,12 @@ class DicewareLanguage extends Component {
   render() {
     return (
       <div>
-        <label htmlFor="languageInput" className="column-left">
+        <label htmlFor="languageInput" className={styles["column-left"]}>
           language:
         </label>
         <select
           name="languageInput"
-          className="column-right"
+          className={styles["column-right"]}
           onChange={this.handleChange}
         >
           <option value="en">English</option>

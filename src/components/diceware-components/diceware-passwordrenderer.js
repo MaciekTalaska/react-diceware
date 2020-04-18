@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import styles from "../diceware.module.css";
 
 class DicewarePasswordRenderer extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class DicewarePasswordRenderer extends Component {
       <div>
         <textarea
           id="passwordArea"
-          className="password-area"
+          className={styles["password-area"]}
           readOnly
           rows="1"
           value={this.props.password}
