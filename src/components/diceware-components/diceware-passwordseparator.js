@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "../diceware.module.css";
-import DpgDiv from "./ui/div";
+import DpgDiv from "./ui/dpgdiv";
 
 class DicewarePasswordSeparator extends Component {
   constructor(props) {

@@ -6,7 +6,7 @@ import DicewarePasswordLength from "./diceware-components/diceware-passwordlengt
 import DicewareLanguage from "./diceware-components/diceware-language";
 import getRandom from "./dice";
 import getWordsMap from "./repository";
-import DpgDiv from "./diceware-components/ui/div";
+import DpgDiv from "./diceware-components/ui/dpgdiv";
 import DpgContainerDiv from "./diceware-components/ui/dpgcontainerdiv";
 
 const MAX_PASSWORD_LENGTH = 10;

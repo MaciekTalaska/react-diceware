@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "../diceware.module.css";
-import DpgButton from "./ui/button";
-import DpgDiv from "./ui/div";
+import DpgButton from "./ui/dpgbutton";
+import DpgDiv from "./ui/dpgdiv";
 
 class DicewarePasswordRenderer extends Component {
   constructor(props) {
