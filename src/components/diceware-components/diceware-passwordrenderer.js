@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import DpgButton from "./ui/dpgbutton";
 import DpgDiv from "./ui/dpgdiv";
+import s from "../diceware.module.css";
 
 class DicewarePasswordRenderer extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class DicewarePasswordRenderer extends Component {
       <DpgDiv>
         <textarea
           id="passwordArea"
-          className="password-area"
+          className={s["password-area"]}
           readOnly
           rows="1"
           value={this.props.password}

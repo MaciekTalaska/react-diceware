@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import DpgDiv from "./ui/dpgdiv";
+import s from "../diceware.module.css";
 
 class DicewarePasswordLength extends Component {
   constructor(props) {
@@ -16,13 +17,13 @@ class DicewarePasswordLength extends Component {
   render() {
     return (
       <DpgDiv>
-        <label className="column-left" htmlFor="passwordLengthInput">
+        <label className={s["column-left"]} htmlFor="passwordLengthInput">
           words per password ({this.props.minPasswordLength}-
           {this.props.maxPasswordLength}):{" "}
         </label>
         <input
           name="passwordLengthInput"
-          className="column-right"
+          className={s["column-right"]}
           value={this.props.passwordLength}
           onChange={this.handleChange}
           type={"number"}

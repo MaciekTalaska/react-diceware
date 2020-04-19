@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 import DpgDiv from "./ui/dpgdiv";
+import s from "../diceware.module.css";
 
 class DicewareLanguage extends Component {
   constructor(props) {
@@ -15,12 +16,12 @@ class DicewareLanguage extends Component {
   render() {
     return (
       <DpgDiv>
-        <label htmlFor="languageInput" className="column-left">
+        <label htmlFor="languageInput" className={s["column-left"]}>
           language:
         </label>
         <select
           name="languageInput"
-          className="column-right"
+          className={s["column-right"]}
           onChange={this.handleChange}
         >
           <option value="en">English</option>

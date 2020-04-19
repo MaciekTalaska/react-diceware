@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./diceware.css";
 import DicewareButton from "./diceware-components/diceware-button";
 import DicewarePasswordRenderer from "./diceware-components/diceware-passwordrenderer";
 import DicewarePasswordSeparator from "./diceware-components/diceware-passwordseparator";
