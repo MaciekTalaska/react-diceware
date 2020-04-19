@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import styles from "./diceware.module.css";
 import DicewareGenerateButton from "./diceware-components/diceware-generate-button";
 import DicewarePasswordRenderer from "./diceware-components/diceware-passwordrenderer";
 import DicewarePasswordSeparator from "./diceware-components/diceware-passwordseparator";
@@ -8,6 +7,7 @@ import DicewareLanguage from "./diceware-components/diceware-language";
 import getRandom from "./dice";
 import getWordsMap from "./repository";
 import DpgDiv from "./diceware-components/ui/div";
+import DpgContainerDiv from "./diceware-components/ui/dpgcontainerdiv";
 
 const MAX_PASSWORD_LENGTH = 10;
 const MIN_PASSWORD_LENGTH = 4;
@@ -74,7 +74,7 @@ class DicewarePasswordGenerator extends Component {
   render() {
     return (
       <DpgDiv>
-        <DpgDiv className={styles.container}>
+        <DpgContainerDiv>
           <DicewareLanguage updatePasswordLanguage={this.updateLanguage} />
           <DicewarePasswordLength
             passwordLength={this.state.passwordLength}
@@ -88,7 +88,7 @@ class DicewarePasswordGenerator extends Component {
           />
           <DicewareGenerateButton regeneratePassword={this.generatePassword} />
           <DicewarePasswordRenderer password={this.state.password} />
-        </DpgDiv>
+        </DpgContainerDiv>
       </DpgDiv>
     );
   }
