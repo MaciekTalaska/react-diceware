@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import DpgButton from "./ui/dpgbutton";
 
 class DicewarePasswordRenderer extends Component {
   constructor(props) {
@@ -17,9 +18,12 @@ class DicewarePasswordRenderer extends Component {
           rows="1"
           value={this.props.password}
         />
-        <button onClick={this.copyPasswordToClipboard}>
+        <DpgButton onClick={this.copyPasswordToClipboard}>
           copy to clipboard
-        </button>
+        </DpgButton>
+        {/*<button style={buttonStyle} onClick={this.copyPasswordToClipboard}>*/}
+        {/*  copy to clipboard*/}
+        {/*</button>*/}
       </div>
     );
   }
