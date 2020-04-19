@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import DpgDiv from "./ui/dpgdiv";
 
 class DicewarePasswordSeparator extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class DicewarePasswordSeparator extends Component {
 
   render() {
     return (
-      <div>
+      <DpgDiv>
         <label className="column-left" htmlFor="separatorInput">
           separator:{" "}
         </label>
@@ -23,7 +24,7 @@ class DicewarePasswordSeparator extends Component {
           value={this.props.separator}
           onChange={this.handleChange}
         />
-      </div>
+      </DpgDiv>
     );
   }
 }

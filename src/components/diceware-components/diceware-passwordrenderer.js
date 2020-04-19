@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import DpgButton from "./ui/dpgbutton";
+import DpgDiv from "./ui/dpgdiv";
 
 class DicewarePasswordRenderer extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class DicewarePasswordRenderer extends Component {
 
   render() {
     return (
-      <div>
+      <DpgDiv>
         <textarea
           id="passwordArea"
           className="password-area"
@@ -21,10 +22,7 @@ class DicewarePasswordRenderer extends Component {
         <DpgButton onClick={this.copyPasswordToClipboard}>
           copy to clipboard
         </DpgButton>
-        {/*<button style={buttonStyle} onClick={this.copyPasswordToClipboard}>*/}
-        {/*  copy to clipboard*/}
-        {/*</button>*/}
-      </div>
+      </DpgDiv>
     );
   }
 

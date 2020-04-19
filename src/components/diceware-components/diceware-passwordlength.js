@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import DpgDiv from "./ui/dpgdiv";
 
 class DicewarePasswordLength extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class DicewarePasswordLength extends Component {
 
   render() {
     return (
-      <div>
+      <DpgDiv>
         <label className="column-left" htmlFor="passwordLengthInput">
           words per password ({this.props.minPasswordLength}-
           {this.props.maxPasswordLength}):{" "}
@@ -28,7 +29,7 @@ class DicewarePasswordLength extends Component {
           min={this.props.minPasswordLength}
           max={this.props.maxPasswordLength}
         />
-      </div>
+      </DpgDiv>
     );
   }
 }

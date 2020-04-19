@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import DpgButton from "./ui/dpgbutton";
+import DpgDiv from "./ui/dpgdiv";
 
 class DicewareButton extends Component {
   constructor(props) {
@@ -14,9 +15,9 @@ class DicewareButton extends Component {
 
   render() {
     return (
-      <div>
+      <DpgDiv>
         <DpgButton onClick={this.generatePassword}>Generate Password</DpgButton>
-      </div>
+      </DpgDiv>
     );
   }
 }
