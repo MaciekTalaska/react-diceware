@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import s from "./div.module.css";
+import s from "./ui.module.css";
 import PropTypes from "prop-types";
 
 class DpgDiv extends Component {
