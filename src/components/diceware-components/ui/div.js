@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from "./div.module.css";
+import PropTypes from "prop-types";
 
 class DpgDiv extends Component {
   render() {
@@ -10,5 +11,10 @@ class DpgDiv extends Component {
     );
   }
 }
+
+DpgDiv.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.any,
+};
 
 export default DpgDiv;
