@@ -7,12 +7,17 @@ const divStyle = {
 
 class DpgDiv extends Component {
   render() {
-    return <div style={divStyle}>{this.props.children}</div>;
+    return (
+      <div style={divStyle} className={this.props.className}>
+        {this.props.children}
+      </div>
+    );
   }
 }
 
 DpgDiv.propTypes = {
   children: PropTypes.any,
+  className: PropTypes.string,
 };
 
 export default DpgDiv;
