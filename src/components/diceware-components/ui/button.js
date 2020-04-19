@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./button.module.css";
+import styles from "./ui.module.css";
 import PropTypes from "prop-types";
 
 class DpgButton extends Component {

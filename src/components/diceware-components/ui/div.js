@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./div.module.css";
+import s from "./div.module.css";
 import PropTypes from "prop-types";
 
 class DpgDiv extends Component {
@@ -7,7 +7,7 @@ class DpgDiv extends Component {
     return (
       //  this literally means: override default style assigned to div
       //  with the style being passed to it
-      <div className={this.props.className}>{this.props.children}</div>
+      <div className={s.div}>{this.props.children}</div>
       // TODO: this should be better done, not all properties set via
       // default style should be lost
       // actually these two should be somehow merged

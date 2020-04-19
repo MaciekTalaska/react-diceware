@@ -1,0 +1,20 @@
+.button {
+  background: #ff3e00;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  margin: 10px;
+  text-transform: capitalize;
+  padding: 10px 20px;
+}
+
+.container {
+  width: 600px;
+  border: 1px solid #ffffff;
+  display: inline-grid;
+  background-color: lightblue;
+  padding: 60px 60px 20px 60px;
+  border-radius: 5px;
+}
+
+
