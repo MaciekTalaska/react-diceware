@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import s from "./ui.module.css";
+import s from "./dpgui.module.css";
 import PropTypes from "prop-types";
 
 class DpgContainerDiv extends Component {
