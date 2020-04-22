@@ -1,15 +1,13 @@
-import React, { Component } from "react";
-import styles from "./dpgui.module.css";
+import React from "react";
+import s from "./dpgui.module.css";
 import PropTypes from "prop-types";
 
-class DpgButton extends Component {
-  render() {
-    return (
-      <button className={styles.button} onClick={this.props.onClick}>
-        {this.props.children}
-      </button>
-    );
-  }
+function DpgButton(props) {
+  return (
+    <button className={s.button} onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
 }
 
 DpgButton.propTypes = {
