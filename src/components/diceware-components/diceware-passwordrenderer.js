@@ -17,7 +17,7 @@ class DicewarePasswordRenderer extends Component {
           id="passwordArea"
           className={styles["password-area"]}
           readOnly
-          rows="1"
+          rows="2"
           value={this.props.password}
         />
         <DpgButton onClick={this.copyPasswordToClipboard}>
